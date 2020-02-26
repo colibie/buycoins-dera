@@ -4,6 +4,7 @@ const {root} = require('./resolver');
 const {schema} = require('./schema');
 
 const app = express();
+const port = process.env.PORT || 4000;
 
 app.use('/graphql', graphqlHTTP({
   schema: schema,
@@ -11,4 +12,4 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
-app.listen(4000, () => console.log('Now browse to localhost:4000/graphql'));
+app.listen(port, () => console.log('Now browse to localhost:4000/graphql'));
